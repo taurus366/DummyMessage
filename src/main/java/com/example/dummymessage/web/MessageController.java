@@ -44,17 +44,7 @@ public class MessageController {
             return ResponseEntity.status(HttpStatus.PRECONDITION_FAILED).build();
         }
 
-//        PayloadMessageServiceModel model = new PayloadMessageServiceModel();
         PayloadMessageServiceModel mappedModel = modelMapper.map(bindingModel, PayloadMessageServiceModel.class);
-
-//        if (bindingModel instanceof EmotionalBindingModel || bindingModel instanceof TextBindingModel) {
-//
-//
-//
-//            model
-//                    .setPayload(bindingModel instanceof EmotionalBindingModel ? ((EmotionalBindingModel) bindingModel).getPayload() : ((TextBindingModel) bindingModel).getPayload())
-//                    .setType(bindingModel instanceof EmotionalBindingModel ? ((EmotionalBindingModel) bindingModel).getType() : ((TextBindingModel) bindingModel).getType());
-//        }
         
         messageService
                 .postNewMessage(mappedModel);

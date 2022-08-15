@@ -24,9 +24,6 @@ public class MessageServiceImpl implements MessageService {
         MessageEntity newMessage = new MessageEntity();
 
         MessageEntity mapped = modelMapper.map(payload, MessageEntity.class);
-//        newMessage
-//                .setPayload(payload.getPayload())
-//                .setType(payload.getType());
 
         return messageRepository.save(mapped);
     }
